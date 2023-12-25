@@ -46,9 +46,7 @@ const io = socket(server, {
   cors: {
     origin: "*",
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept'],
-    credentials: true
   },
-  allowEIO3: true
 });
 
 global.onlineUsers = new Map();
