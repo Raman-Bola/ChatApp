@@ -7,7 +7,20 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-app.use(cors());
+
+var whitelist = ["https://chat-app-frontend-snowy.vercel.app/"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Something went wrong"));
+    }
+  },
+};
+
+// To use cors
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
@@ -49,3 +62,5 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+
