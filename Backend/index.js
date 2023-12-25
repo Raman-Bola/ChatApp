@@ -35,17 +35,17 @@ const server = app.listen(process.env.PORT, () =>
 );
 
 const io = socket(server, {
-  handlePreflightRequest: (req, res) => {
-        const headers = {
-            "Access-Control-Allow-Headers": "Content-Type, Authorization, Origin, X-Requested-With, Accept",
-            "Access-Control-Allow-Origin": "*",
-        };
-        res.writeHead(200, headers);
-        res.end();
-    },
+  // handlePreflightRequest: (req, res) => {
+  //       const headers = {
+  //           "Access-Control-Allow-Headers": "Content-Type, Authorization, Origin, X-Requested-With, Accept",
+  //           "Access-Control-Allow-Origin": "*",
+  //       };
+  //       res.writeHead(200, headers);
+  //       res.end();
+  //   },
   cors: {
     origin: "*",
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept'],
   },
 });
 
