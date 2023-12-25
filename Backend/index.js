@@ -47,6 +47,7 @@ const io = socket(server, {
     origin: "*",
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept'],
   },
+  transports: ['websocket'],
 });
 
 global.onlineUsers = new Map();
