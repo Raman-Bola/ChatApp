@@ -37,16 +37,14 @@ const server = app.listen(process.env.PORT, () =>
 const io = socket(server, {
   handlePreflightRequest: (req, res) => {
         const headers = {
-            "Access-Control-Allow-Headers": "Content-Type, Authorization",
-            "Access-Control-Allow-Origin": "https://chat-app-frontend-snowy.vercel.app/",
-            "Access-Control-Allow-Credentials": true
+            "Access-Control-Allow-Headers": "Content-Type, Authorization, Origin, X-Requested-With, Accept",
+            "Access-Control-Allow-Origin": "*",
         };
         res.writeHead(200, headers);
         res.end();
     },
   cors: {
-    origin: "https://chat-app-frontend-snowy.vercel.app/",
-    credentials: true,
+    origin: "*",
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   },
 });
